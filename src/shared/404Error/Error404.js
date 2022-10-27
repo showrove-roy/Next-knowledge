@@ -14,7 +14,7 @@ const Error404 = () => {
           src='https://assets9.lottiefiles.com/packages/lf20_0hj4Khn1at.json'
           style={{ height: "300px", width: "300px" }}></Player>
 
-        <h3 className='md:text-3xl font-semibold '>This Page is not Found</h3>
+        <h3 className='md:text-3xl font-semibold'>This Page is not Found</h3>
         <h4 className='md:text-2xl my-3 font-semibold'>
           Please Go{" "}
           <Link

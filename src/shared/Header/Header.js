@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logoImg from "../../logoPNG1.png";
 
 const Header = () => {
   return (
@@ -25,12 +26,12 @@ const Header = () => {
             <ul
               tabIndex={0}
               className='menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52'>
-              <li>
-                <Link>Item 1</Link>
+              <li className='font-semibold'>
+                <Link to='/'>Home</Link>
               </li>
               <li tabIndex={0}>
-                <Link className='justify-between'>
-                  Parent
+                <Link className='justify-between font-semibold'>
+                  Courses
                   <svg
                     className='fill-current'
                     xmlns='http://www.w3.org/2000/svg'
@@ -41,29 +42,34 @@ const Header = () => {
                   </svg>
                 </Link>
                 <ul className='p-2'>
-                  <li>
+                  <li className=''>
                     <Link>Submenu 1</Link>
                   </li>
-                  <li>
+                  <li className=''>
                     <Link>Submenu 2</Link>
                   </li>
                 </ul>
               </li>
-              <li>
-                <Link>Item 3</Link>
+              <li className='font-semibold'>
+                <Link>FAQ</Link>
+              </li>
+              <li className='font-semibold'>
+                <Link>Blog</Link>
               </li>
             </ul>
           </div>
-          <Link className='btn btn-ghost normal-case text-xl'>Hi</Link>
+          <Link to='/' className='btn btn-ghost normal-case'>
+            <img className='h-10' src={logoImg} alt='' />
+          </Link>
         </div>
         <div className='navbar-center hidden lg:flex'>
           <ul className='menu menu-horizontal p-0'>
-            <li>
-              <Link>Item 1</Link>
+            <li className='font-semibold'>
+              <Link to='/'>Home</Link>
             </li>
             <li tabIndex={0}>
-              <Link>
-                Parent
+              <Link className='font-semibold'>
+                Courses
                 <svg
                   className='fill-current'
                   xmlns='http://www.w3.org/2000/svg'
@@ -74,16 +80,19 @@ const Header = () => {
                 </svg>
               </Link>
               <ul className='p-2'>
-                <li>
+                <li className=''>
                   <Link>Submenu 1</Link>
                 </li>
-                <li>
+                <li className=''>
                   <Link>Submenu 2</Link>
                 </li>
               </ul>
             </li>
-            <li>
-              <Link>Item 3</Link>
+            <li className='font-semibold'>
+              <Link>FAQ</Link>
+            </li>
+            <li className='font-semibold'>
+              <Link>Blog</Link>
             </li>
           </ul>
         </div>
