@@ -35,7 +35,7 @@ const Header = () => {
                 <Link to='/'>Home</Link>
               </li>
               <li tabIndex={0}>
-                <Link className='justify-between font-semibold'>
+                <Link to='/courses' className='justify-between font-semibold'>
                   Courses
                   <svg
                     className='fill-current'
@@ -56,10 +56,10 @@ const Header = () => {
                 </ul>
               </li>
               <li className='font-semibold'>
-                <Link>FAQ</Link>
+                <Link to='/faq'>FAQ</Link>
               </li>
               <li className='font-semibold'>
-                <Link>Blog</Link>
+                <Link to='/blog'>Blog</Link>
               </li>
             </ul>
           </div>
@@ -73,7 +73,7 @@ const Header = () => {
               <Link to='/'>Home</Link>
             </li>
             <li tabIndex={0}>
-              <Link className='font-semibold'>
+              <Link to='/courses' className='font-semibold'>
                 Courses
                 <svg
                   className='fill-current'
@@ -94,15 +94,20 @@ const Header = () => {
               </ul>
             </li>
             <li className='font-semibold'>
-              <Link>FAQ</Link>
+              <Link to='/faq'>FAQ</Link>
             </li>
             <li className='font-semibold'>
-              <Link>Blog</Link>
+              <Link to='/blog'>Blog</Link>
             </li>
           </ul>
         </div>
         <div className='navbar-end'>
-          <button onClick={themeHandle} className='btn btn-outline'>
+          <div className='avatar'>
+            <div className='md:w-11  mx-5 w-8 rounded-full'>
+              <img title='Showrove' src='https://placeimg.com/192/192/people' />
+            </div>
+          </div>
+          <button onClick={themeHandle}>
             {theme ? (
               <svg
                 xmlns='http://www.w3.org/2000/svg'

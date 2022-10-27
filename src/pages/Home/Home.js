@@ -11,7 +11,8 @@ const Home = () => {
           autoplay
           loop
           src='https://assets5.lottiefiles.com/packages/lf20_puciaact.json'
-          className='md:h-[650px] md:-m-14'></Player>
+          className='md:h-[600px]'
+          style={{ marginTop: "-20px" }}></Player>
       </div>
     </div>
   );
