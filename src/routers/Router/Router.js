@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import Course from "../../layout/Course";
 import Main from "../../layout/Main";
 import Home from "../../pages/Home/Home";
 import Error404 from "../../shared/404Error/Error404";
@@ -13,7 +14,6 @@ export const routers = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/courses"),
       },
       {
         path: "/login",
@@ -24,6 +24,10 @@ export const routers = createBrowserRouter([
         element: <SignUP></SignUP>,
       },
     ],
+  },
+  {
+    path: "/courses",
+    element: <Course></Course>,
   },
   {
     path: "*",
