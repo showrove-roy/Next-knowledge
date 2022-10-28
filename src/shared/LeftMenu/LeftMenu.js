@@ -28,7 +28,7 @@ const LeftMenu = () => {
   return (
     <div className='md:fixed w-fit'>
       <div>
-        <h3 className='md:text-2xl text-xl md:font-bold font-semibold mt-5 mb-0 text-[#f71e7cdf] text-center md:ml-1'>
+        <h3 className='md:text-2xl text-xl md:font-bold font-semibold mt-5 mb-0 text-[#f71e7cdf] md:text-start text-center md:ml-1'>
           All Levels
         </h3>
         <div className='divider my-0  after:bg-[#f7df1e] before:bg-[#f7df1e] md:w-1/2'></div>
@@ -41,7 +41,7 @@ const LeftMenu = () => {
         </ul>
       </div>
       <div>
-        <h3 className='md:text-2xl text-xl md:font-bold font-semibold mt-5 mb-0 text-[#f71e7cdf] text-center md:ml-1'>
+        <h3 className='md:text-2xl text-xl md:font-bold font-semibold mt-5 mb-0 text-[#f71e7cdf] md:text-start text-center md:ml-1'>
           All Subjects
         </h3>
         <div className='divider my-0  after:bg-[#f7df1e] before:bg-[#f7df1e] md:w-3/5'></div>

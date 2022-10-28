@@ -1,5 +1,5 @@
 import React from "react";
-
+import { HiStar } from "react-icons/hi2";
 const Course = ({ course }) => {
   const { id, photo_URL, title, subTitle, price, rating, subject } = course;
   return (
@@ -10,11 +10,15 @@ const Course = ({ course }) => {
       <div className='card-body'>
         <h2 className='card-title'>{title}</h2>
         <p>{subTitle}</p>
-        <div className='card-actions justify-between'>
-          <p>{price}</p>
-          <p>{rating}</p>
+        <div className='card-actions justify-between justify-items-center items-center mt-5'>
+          <p className='font-semibold text-base cursor-pointer hover:text-[#DF5155]'>
+            $ {price}
+          </p>
+          <p className='font-semibold text-base cursor-pointer hover:text-[#DF5155] flex items-center'>
+            <HiStar className='text-lg mr-1 text-yellow-400' /> {rating}
+          </p>
 
-          <button className='btn bg-[#DF5155] text-[#283132] font-bold  hover:text-[#DF5155]'>
+          <button className='font-semibold text-base   hover:bg-neutral hover:text-[#DF5155]'>
             Buy Now
           </button>
         </div>
