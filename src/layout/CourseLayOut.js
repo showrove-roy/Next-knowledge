@@ -8,7 +8,7 @@ const CourseLayOut = () => {
     <>
       <Header></Header>
       <div className='md:flex md:justify-center md:px-10 px-5'>
-        <div className='md:w-1/5 w-full mx-auto'>
+        <div className='md:w-1/5 w-fit mx-auto'>
           <LeftMenu></LeftMenu>
         </div>
         <div className='md:w-4/5 w-full mx-auto'>
