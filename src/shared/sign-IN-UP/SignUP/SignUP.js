@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useAuthInfo } from "../../../contexts/AuthProvider";
 
 const SignUP = () => {
-  const { googleSignIN } = useAuthInfo();
+  const { googleSignIN, createUser, updateUserInfo } = useAuthInfo();
 
   // Google sign handel
   const googleSignHandle = () => {
@@ -23,25 +23,52 @@ const SignUP = () => {
       });
   };
 
+  // Create user handel
+  const createUserHandle = (event) => {
+    setErrorMess(null);
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(name, email, password);
+
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.error(error);
+        const errorMessage = error.message;
+        setErrorMess(errorMessage);
+      });
+
+    form.reset();
+  };
+
   // Error Message control
   const [errorMess, setErrorMess] = useState(null);
   return (
     <div className='hero h-full  pt-2 pb-10'>
       <div className=''>
         {errorMess ? (
-          <h1 className='text-5xl font-bold my-5'>{errorMess}</h1>
+          <p className='my-5 text-error text-center'>{errorMess}</p>
         ) : (
-          <h1 className='text-5xl font-bold my-5'>Sign Up now!</h1>
+          <h3 className='text-5xl font-bold my-5'>Sign Up now!</h3>
         )}
 
         <div className='card  w-full max-w-sm shadow-2xl bg-base-200'>
-          <form className='card-body mt-0 px-4 py-0'>
+          <form
+            onSubmit={createUserHandle}
+            className='card-body mt-0 px-4 py-0'>
             <div className='form-control'>
               <label className='label'>
                 <span className='label-text'>Name</span>
               </label>
               <input
                 type='text'
+                name='name'
                 placeholder='name'
                 className='input input-bordered'
                 required
@@ -53,6 +80,7 @@ const SignUP = () => {
               </label>
               <input
                 type='email'
+                name='email'
                 placeholder='email'
                 className='input input-bordered'
                 required
@@ -64,6 +92,7 @@ const SignUP = () => {
               </label>
               <input
                 type='password'
+                name='password'
                 placeholder='password'
                 className='input input-bordered'
                 required

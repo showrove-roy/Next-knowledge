@@ -1,12 +1,33 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useAuthInfo } from "../../contexts/AuthProvider";
 import logo from "../../logoPNG1.png";
 const Footer = () => {
+  const { user, signOUT } = useAuthInfo();
+  // sign out handel
+  const signHandel = () => {
+    signOUT()
+      .then(() => {
+        // Sign-out successful.
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
   return (
-    <footer className='footer md:p-20 p-10 bg-neutral text-neutral-content z-10 mt-10 justify-center md:justify-between'>
+    <footer className='footer md:p-20 p-10 bg-neutral text-neutral-content mt-10 justify-center md:justify-between'>
       <div>
         <img className='w-40 mx-auto' src={logo} alt='' />
         <p>Social media is not active</p>
+        {user?.uid ? (
+          <button onClick={signHandel} className='btn btn-outline btn-error'>
+            Log Out
+          </button>
+        ) : (
+          <Link to='/login' className='btn btn-outline btn-error'>
+            Log IN
+          </Link>
+        )}
       </div>
       <div>
         <span className='footer-title'>Social</span>

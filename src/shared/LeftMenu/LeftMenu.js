@@ -26,7 +26,7 @@ const LeftMenu = () => {
   }, []);
 
   return (
-    <div className='md:fixed w-fit -z-10'>
+    <div className='w-fit'>
       <div>
         <h3 className='md:text-2xl text-xl md:font-bold font-semibold mt-5 mb-0 text-[#f71e7cdf] md:text-start text-center md:ml-1'>
           All Levels
