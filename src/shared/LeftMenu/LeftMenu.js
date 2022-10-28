@@ -35,7 +35,7 @@ const LeftMenu = () => {
         <ul className='menu menu-compact lg:menu-normal bg-base-100 flex-row md:flex-col md:w-56'>
           {levels.map((level, indexID) => (
             <li key={indexID} className='font-semibold capitalize'>
-              <Link to={`/courses/${level.level}`}>{level?.level}</Link>
+              <Link to={`/courses/level/${level.level}`}>{level?.level}</Link>
             </li>
           ))}
         </ul>
@@ -48,7 +48,9 @@ const LeftMenu = () => {
         <ul className='menu menu-compact lg:menu-normal bg-base-100 flex-row md:flex-col md:w-56'>
           {subjects.map((subject, indexID) => (
             <li key={indexID} className='font-semibold capitalize'>
-              <Link>{subject?.subject}</Link>
+              <Link to={`/courses/subject/${subject.subject}`}>
+                {subject?.subject}
+              </Link>
             </li>
           ))}
         </ul>
