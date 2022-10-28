@@ -7,7 +7,7 @@ const Error404 = () => {
   return (
     <div>
       <Header></Header>
-      <div className=''>
+      <div className='text-center'>
         <Player
           autoplay
           loop

@@ -32,7 +32,7 @@ export const routers = createBrowserRouter([
     children: [
       {
         path: "/courses",
-        loader: () => fetch("http://localhost:5000/courses"),
+        loader: () => fetch("https://next-knowledge-server.vercel.app/courses"),
         element: <Courses></Courses>,
       },
     ],
