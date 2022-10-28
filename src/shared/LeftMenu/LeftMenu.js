@@ -3,8 +3,20 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const LeftMenu = () => {
+  // get and set course level
+  const [levels, setLevels] = useState([]);
+
   // get & set course subject
   const [subjects, setSubjects] = useState([]);
+
+  // get course levels
+  useEffect(() => {
+    fetch("https://next-knowledge-server.vercel.app/level")
+      .then((res) => res.json())
+      .then((data) => setLevels(data))
+      .catch((error) => console.error(error));
+  }, []);
+
   // get course subject
   useEffect(() => {
     fetch("https://next-knowledge-server.vercel.app/subject")
@@ -14,19 +26,33 @@ const LeftMenu = () => {
   }, []);
 
   return (
-    <div className='fixed'>
-      <h3 className='text-2xl font-bold mt-5 mb-0 text-[#f71e7cdf]'>
-        Our's Courses
-      </h3>
-      <div className='divider mt-1 after:bg-[#f7df1e] before:bg-[#f7df1e]'></div>
-
-      <ul className='menu menu-compact lg:menu-normal bg-base-100 w-56 p-2 rounded-box'>
-        {subjects.map((subject) => (
-          <li className='font-semibold capitalize'>
-            <Link>{subject?.subject}</Link>
-          </li>
-        ))}
-      </ul>
+    <div className='md:fixed w-fit'>
+      <div>
+        <h3 className='text-2xl font-bold mt-5 mb-0 text-[#f71e7cdf] ml-1'>
+          All Levels
+        </h3>
+        <div className='divider my-0  after:bg-[#f7df1e] before:bg-[#f7df1e] w-1/2'></div>
+        <ul className='menu menu-compact lg:menu-normal bg-base-100 w-56'>
+          {levels.map((level) => (
+            <li className='font-semibold capitalize'>
+              <Link>{level?.level}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h3 className='text-2xl font-bold mt-5 mb-0 text-[#f71e7cdf] ml-1'>
+          All Subjects
+        </h3>
+        <div className='divider my-0  after:bg-[#f7df1e] before:bg-[#f7df1e] w-3/5'></div>
+        <ul className='menu menu-compact lg:menu-normal bg-base-100 w-56'>
+          {subjects.map((subject) => (
+            <li className='font-semibold capitalize'>
+              <Link>{subject?.subject}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
