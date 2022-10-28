@@ -35,6 +35,14 @@ export const routers = createBrowserRouter([
         loader: () => fetch("https://next-knowledge-server.vercel.app/courses"),
         element: <Courses></Courses>,
       },
+      {
+        path: "/courses/:level",
+        element: <Courses></Courses>,
+        loader: ({ params }) =>
+          fetch(
+            `https://next-knowledge-server.vercel.app/level/${params.level}`
+          ),
+      },
     ],
   },
   {

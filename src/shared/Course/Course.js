@@ -18,7 +18,7 @@ const Course = ({ course }) => {
             <HiStar className='text-lg mr-1 text-yellow-400' /> {rating}
           </p>
 
-          <button className='btn btn-sm btn-outline btn-warning font-semibold text-base '>
+          <button className='btn btn-sm btn-outline btn-warning font-semibold text-base'>
             Buy Now
           </button>
         </div>
