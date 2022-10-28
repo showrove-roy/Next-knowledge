@@ -18,9 +18,9 @@ const Error404 = () => {
         <h4 className='md:text-2xl my-3 font-semibold'>
           Please Go{" "}
           <Link
-            to='/'
+            to='/courses'
             className='btn-secondary px-3 rounded font-semibold py-1'>
-            Home
+            Courses
           </Link>
         </h4>
       </div>

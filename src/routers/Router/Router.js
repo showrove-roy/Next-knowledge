@@ -4,6 +4,7 @@ import Main from "../../layout/Main";
 import Courses from "../../pages/Courses/Courses";
 import Home from "../../pages/Home/Home";
 import Error404 from "../../shared/404Error/Error404";
+import CourseDetails from "../../shared/CourseDetails/CourseDetails";
 import Login from "../../shared/sign-IN-UP/Login/Login";
 import SignUP from "../../shared/sign-IN-UP/SignUP/SignUP";
 
@@ -34,6 +35,14 @@ export const routers = createBrowserRouter([
         path: "/courses",
         loader: () => fetch("https://next-knowledge-server.vercel.app/courses"),
         element: <Courses></Courses>,
+      },
+      {
+        path: "/courses/course/:id",
+        loader: ({ params }) =>
+          fetch(
+            `https://next-knowledge-server.vercel.app/courses/${params.id}`
+          ),
+        element: <CourseDetails></CourseDetails>,
       },
       {
         path: "/courses/level/:level",
