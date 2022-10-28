@@ -33,8 +33,8 @@ const LeftMenu = () => {
         </h3>
         <div className='divider my-0  after:bg-[#f7df1e] before:bg-[#f7df1e] w-1/2'></div>
         <ul className='menu menu-compact lg:menu-normal bg-base-100 w-56'>
-          {levels.map((level) => (
-            <li className='font-semibold capitalize'>
+          {levels.map((level, indexID) => (
+            <li key={indexID} className='font-semibold capitalize'>
               <Link>{level?.level}</Link>
             </li>
           ))}
@@ -46,8 +46,8 @@ const LeftMenu = () => {
         </h3>
         <div className='divider my-0  after:bg-[#f7df1e] before:bg-[#f7df1e] w-3/5'></div>
         <ul className='menu menu-compact lg:menu-normal bg-base-100 w-56'>
-          {subjects.map((subject) => (
-            <li className='font-semibold capitalize'>
+          {subjects.map((subject, indexID) => (
+            <li key={indexID} className='font-semibold capitalize'>
               <Link>{subject?.subject}</Link>
             </li>
           ))}

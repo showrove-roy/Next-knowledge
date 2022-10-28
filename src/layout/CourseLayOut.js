@@ -8,10 +8,10 @@ const CourseLayOut = () => {
     <>
       <Header></Header>
       <div className='md:flex md:justify-center md:px-10 px-5'>
-        <div className='w-1/5'>
+        <div className='md:w-1/5 w-full mx-auto'>
           <LeftMenu></LeftMenu>
         </div>
-        <div className='w-4/5'>
+        <div className='md:w-4/5 w-full mx-auto'>
           <Outlet></Outlet>
         </div>
       </div>

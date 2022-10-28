@@ -4,7 +4,7 @@ const Course = ({ course }) => {
   const { id, photo_URL, title, subTitle, price, rating, subject } = course;
   return (
     <div className='card card-compact  md:w-11/12 shadow-xl bg-neutral'>
-      <figure className=''>
+      <figure>
         <img src={photo_URL} alt={subject} />
       </figure>
       <div className='card-body'>
