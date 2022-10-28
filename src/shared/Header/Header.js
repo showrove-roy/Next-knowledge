@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuthInfo } from "../../contexts/AuthProvider";
 import logoImg from "../../logoPNG1.png";
 
 const Header = () => {
@@ -8,6 +9,9 @@ const Header = () => {
   const themeHandle = () => {
     setTheme(!theme);
   };
+
+  const { user } = useAuthInfo();
+  console.log(user);
   return (
     <div className='sticky top-0 z-50'>
       <div className='navbar bg-neutral'>
@@ -110,7 +114,11 @@ const Header = () => {
         <div className='navbar-end'>
           <div className='avatar'>
             <div className='md:w-11  mx-5 w-8 rounded-full'>
-              <img title='Showrove' src='https://placeimg.com/192/192/people' />
+              <img
+                src={user?.photoURL}
+                alt={user?.displayName}
+                title={user?.displayName}
+              />
             </div>
           </div>
           <button onClick={themeHandle}>
