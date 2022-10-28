@@ -1,5 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import Footer from "../shared/Footer/Footer";
 import Header from "../shared/Header/Header";
 import LeftMenu from "../shared/LeftMenu/LeftMenu";
 
@@ -15,6 +16,7 @@ const CourseLayOut = () => {
           <Outlet></Outlet>
         </div>
       </div>
+      <Footer></Footer>
     </>
   );
 };
