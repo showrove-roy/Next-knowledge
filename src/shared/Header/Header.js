@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthInfo } from "../../contexts/AuthProvider";
 import logoImg from "../../logoPNG1.png";
+import { FaUserAlt } from "react-icons/fa";
 
 const Header = () => {
   const [theme, setTheme] = useState(true);
@@ -112,15 +113,26 @@ const Header = () => {
           </ul>
         </div>
         <div className='navbar-end'>
-          <div className='avatar'>
-            <div className='md:w-11  mx-5 w-8 rounded-full'>
-              <img
-                src={user?.photoURL}
-                alt={user?.displayName}
-                title={user?.displayName}
-              />
+          {user?.uid ? (
+            <div className='avatar md:w-11  mx-5 w-8 '>
+              {user?.photoURL ? (
+                <div className='rounded-full'>
+                  <img
+                    src={user?.photoURL}
+                    alt={user?.displayName}
+                    title={user?.displayName}
+                  />
+                </div>
+              ) : (
+                <FaUserAlt />
+              )}
             </div>
-          </div>
+          ) : (
+            <Link to='/login' className='btn btn-sm btn-outline btn-error'>
+              Log IN
+            </Link>
+          )}
+
           <button onClick={themeHandle}>
             {theme ? (
               <svg

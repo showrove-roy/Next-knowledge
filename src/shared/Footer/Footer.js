@@ -20,11 +20,13 @@ const Footer = () => {
         <img className='w-40 mx-auto' src={logo} alt='' />
         <p>Social media is not active</p>
         {user?.uid ? (
-          <button onClick={signHandel} className='btn btn-outline btn-error'>
+          <button
+            onClick={signHandel}
+            className='btn btn-sm btn-outline btn-error'>
             Log Out
           </button>
         ) : (
-          <Link to='/login' className='btn btn-outline btn-error'>
+          <Link to='/login' className='btn btn-sm btn-outline btn-error'>
             Log IN
           </Link>
         )}
