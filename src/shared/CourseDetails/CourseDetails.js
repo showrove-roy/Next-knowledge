@@ -1,6 +1,6 @@
 import React from "react";
 import { HiStar } from "react-icons/hi2";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const CourseDetails = () => {
   const course = useLoaderData();
@@ -32,7 +32,7 @@ const CourseDetails = () => {
           </p>
 
           <button className='btn btn-sm btn-outline btn-warning font-semibold text-base'>
-            Buy Now
+            <Link to={`/courses/order/${id}`}>Buy Now</Link>
           </button>
         </div>
         <div className='divider mb-1'></div>

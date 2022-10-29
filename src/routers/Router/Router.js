@@ -7,6 +7,7 @@ import FAQ from "../../pages/FAQ/FAQ";
 import Home from "../../pages/Home/Home";
 import Error404 from "../../shared/404Error/Error404";
 import CourseDetails from "../../shared/CourseDetails/CourseDetails";
+import OrderPage from "../../shared/OrderPage/OrderPage";
 import Login from "../../shared/sign-IN-UP/Login/Login";
 import SignUP from "../../shared/sign-IN-UP/SignUP/SignUP";
 import PrivateRouter from "../PrivatRouter/PrivateRouter";
@@ -35,6 +36,18 @@ export const routers = createBrowserRouter([
       {
         path: "/faq",
         element: <FAQ></FAQ>,
+      },
+      {
+        path: "/courses/order/:id",
+        loader: ({ params }) =>
+          fetch(
+            `https://next-knowledge-server.vercel.app/courses/${params.id}`
+          ),
+        element: (
+          <PrivateRouter>
+            <OrderPage></OrderPage>
+          </PrivateRouter>
+        ),
       },
     ],
   },
