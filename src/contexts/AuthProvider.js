@@ -27,6 +27,9 @@ export const useAuthInfo = () => {
 const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
+  // loading state
+  const [loading, setLoading] = useState(true);
+
   // Get Google Provider
   const googleProvider = new GoogleAuthProvider();
 
@@ -66,6 +69,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      setLoading(false);
     });
     return () => unsubscribe();
   }, []);
@@ -81,6 +85,8 @@ const AuthProvider = ({ children }) => {
     updateUserInfo,
     gitHubLogin,
     loginUser,
+    loading,
+    setLoading,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
