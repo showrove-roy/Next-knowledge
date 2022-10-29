@@ -12,7 +12,6 @@ const Header = () => {
   };
 
   const { user } = useAuthInfo();
-  console.log(user);
   return (
     <div className='sticky top-0 z-50'>
       <div className='navbar bg-neutral'>

@@ -1,19 +1,23 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { useAuthInfo } from "../../../contexts/AuthProvider";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const { googleSignIN, gitHubLogin, loginUser } = useAuthInfo();
+
+  const from = location.state?.from?.pathname || "/";
 
   // Google sign handel
   const googleSignHandle = () => {
     setErrorMess(null);
     googleSignIN()
       .then((result) => {
-        const user = result.user;
-        console.log(user);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error(error);
@@ -27,8 +31,7 @@ const Login = () => {
     setErrorMess(null);
     gitHubLogin()
       .then((result) => {
-        const user = result.user;
-        console.log(user);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error(error);
@@ -44,11 +47,9 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
     loginUser(email, password)
       .then((result) => {
-        const user = result.user;
-        console.log(user);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error(error);
