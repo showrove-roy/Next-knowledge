@@ -1,7 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import CourseLayOut from "../../layout/CourseLayOut";
 import Main from "../../layout/Main";
+import Blog from "../../pages/Blog/Blog";
 import Courses from "../../pages/Courses/Courses";
+import FAQ from "../../pages/FAQ/FAQ";
 import Home from "../../pages/Home/Home";
 import Error404 from "../../shared/404Error/Error404";
 import CourseDetails from "../../shared/CourseDetails/CourseDetails";
@@ -24,6 +26,14 @@ export const routers = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUP></SignUP>,
+      },
+      {
+        path: "/blogs",
+        element: <Blog></Blog>,
+      },
+      {
+        path: "/faq",
+        element: <FAQ></FAQ>,
       },
     ],
   },
