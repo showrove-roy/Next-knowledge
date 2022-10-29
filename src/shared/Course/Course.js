@@ -21,7 +21,7 @@ const Course = ({ course }) => {
             </p>
 
             <button className='btn btn-sm btn-outline btn-warning font-semibold text-base'>
-              Buy Now
+              Get Course
             </button>
           </div>
         </div>

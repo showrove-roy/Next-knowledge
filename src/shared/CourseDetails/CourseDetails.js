@@ -1,6 +1,7 @@
 import React from "react";
 import { HiStar } from "react-icons/hi2";
 import { Link, useLoaderData } from "react-router-dom";
+import { jsPDF } from "jspdf";
 
 const CourseDetails = () => {
   const course = useLoaderData();
@@ -14,6 +15,17 @@ const CourseDetails = () => {
     subject,
     description,
   } = course;
+
+  const generatePDF = () => {
+    const doc = new jsPDF("landscape", "px", "a4", "false");
+
+    doc.setFont("helvetica", "bold");
+    doc.text(`${title}`, 100, 30);
+
+    doc.text(`${subTitle}`, 10, 40);
+
+    doc.save(`${title}.pdf`);
+  };
 
   return (
     <div className='card card-compact  md:w-9/12 w-full shadow-xl bg-neutral cursor-pointer mt-10 mx-auto'>
@@ -31,8 +43,13 @@ const CourseDetails = () => {
             <HiStar className='text-lg mr-1 text-yellow-400' /> {rating}
           </p>
 
+          <button
+            onClick={generatePDF}
+            className='btn btn-sm btn-outline btn-warning font-semibold text-base'>
+            Free
+          </button>
           <button className='btn btn-sm btn-outline btn-warning font-semibold text-base'>
-            <Link to={`/courses/order/${id}`}>Buy Now</Link>
+            <Link to={`/courses/order/${id}`}>Premium</Link>
           </button>
         </div>
         <div className='divider mb-1'></div>
