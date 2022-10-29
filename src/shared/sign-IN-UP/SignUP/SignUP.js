@@ -6,7 +6,8 @@ import { Link } from "react-router-dom";
 import { useAuthInfo } from "../../../contexts/AuthProvider";
 
 const SignUP = () => {
-  const { googleSignIN, createUser, updateUserInfo } = useAuthInfo();
+  const { googleSignIN, createUser, updateUserInfo, gitHubLogin } =
+    useAuthInfo();
 
   // Google sign handel
   const googleSignHandle = () => {
@@ -29,11 +30,48 @@ const SignUP = () => {
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
+    const photoUrl = form.photoUrl.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name, email, password);
+    console.log(name, email, password, photoUrl);
 
     createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        userInfoUpdate(name, photoUrl);
+      })
+      .catch((error) => {
+        console.error(error);
+        const errorMessage = error.message;
+        setErrorMess(errorMessage);
+      });
+
+    form.reset();
+  };
+
+  // update User Info Handle
+  const userInfoUpdate = (name, photoLink) => {
+    const profile = {
+      displayName: name,
+      photoURL: photoLink,
+    };
+    updateUserInfo(profile)
+      .then(() => {
+        // Profile updated!
+        // ...
+      })
+      .catch((error) => {
+        // An error occurred
+        console.error(error);
+        const errorMessage = error.message;
+        setErrorMess(errorMessage);
+      });
+  };
+
+  const gitHubLoginHandle = () => {
+    setErrorMess(null);
+    gitHubLogin()
       .then((result) => {
         const user = result.user;
         console.log(user);
@@ -43,8 +81,6 @@ const SignUP = () => {
         const errorMessage = error.message;
         setErrorMess(errorMessage);
       });
-
-    form.reset();
   };
 
   // Error Message control
@@ -72,6 +108,17 @@ const SignUP = () => {
                 placeholder='name'
                 className='input input-bordered'
                 required
+              />
+            </div>
+            <div className='form-control'>
+              <label className='label'>
+                <span className='label-text'>Photo URL</span>
+              </label>
+              <input
+                type='text'
+                name='photoUrl'
+                placeholder='photo url'
+                className='input input-bordered'
               />
             </div>
             <div className='form-control'>
@@ -115,7 +162,10 @@ const SignUP = () => {
               onClick={googleSignHandle}
               className='text-5xl cursor-pointer hover:border-2 p-1 rounded'
             />
-            <FaGithub className='text-5xl cursor-pointer hover:border-2 p-1 rounded' />
+            <FaGithub
+              onClick={gitHubLoginHandle}
+              className='text-5xl cursor-pointer hover:border-2 p-1 rounded'
+            />
           </div>
         </div>
       </div>
