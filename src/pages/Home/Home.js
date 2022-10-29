@@ -11,7 +11,6 @@ const Home = () => {
           src='https://assets2.lottiefiles.com/packages/lf20_cUG5w8.json'
           className='h-24'
           style={{ marginTop: "10px" }}></Player>
-        <h1></h1>
       </div>
       <div className=''>
         <Player
