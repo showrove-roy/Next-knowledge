@@ -38,30 +38,36 @@ const AuthProvider = ({ children }) => {
 
   // GOOGlE sign in function
   const googleSignIN = () => {
+    setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 
   //create User With Email And Password
   const createUser = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   // Update USER Profile
   const updateUserInfo = (profile) => {
+    setLoading(true);
     return updateProfile(auth.currentUser, profile);
   };
 
   // Sign in a user with an email address and password
   const loginUser = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   // github login function
   const gitHubLogin = () => {
+    setLoading(true);
     return signInWithPopup(auth, githubProvider);
   };
   //sign out a user
   const signOUT = () => {
+    setLoading(true);
     return signOut(auth);
   };
 

@@ -11,11 +11,9 @@ const SignUP = () => {
 
   // Google sign handel
   const googleSignHandle = () => {
-    setErrorMess(null);
     googleSignIN()
       .then((result) => {
-        const user = result.user;
-        console.log(user);
+        setErrorMess("");
       })
       .catch((error) => {
         console.error(error);
@@ -26,28 +24,24 @@ const SignUP = () => {
 
   // Create user handel
   const createUserHandle = (event) => {
-    setErrorMess(null);
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
     const photoUrl = form.photoUrl.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name, email, password, photoUrl);
 
     createUser(email, password)
       .then((result) => {
-        const user = result.user;
-        console.log(user);
+        setErrorMess("");
         userInfoUpdate(name, photoUrl);
+        form.reset();
       })
       .catch((error) => {
         console.error(error);
         const errorMessage = error.message;
         setErrorMess(errorMessage);
       });
-
-    form.reset();
   };
 
   // update User Info Handle
@@ -58,8 +52,7 @@ const SignUP = () => {
     };
     updateUserInfo(profile)
       .then(() => {
-        // Profile updated!
-        // ...
+        setErrorMess("");
       })
       .catch((error) => {
         // An error occurred
@@ -71,11 +64,9 @@ const SignUP = () => {
 
   // Git hum handel
   const gitHubLoginHandle = () => {
-    setErrorMess(null);
     gitHubLogin()
       .then((result) => {
-        const user = result.user;
-        console.log(user);
+        setErrorMess("");
       })
       .catch((error) => {
         console.error(error);
@@ -85,7 +76,7 @@ const SignUP = () => {
   };
 
   // Error Message control
-  const [errorMess, setErrorMess] = useState(null);
+  const [errorMess, setErrorMess] = useState("");
   return (
     <div className='hero h-full  pt-2 pb-10'>
       <div className=''>

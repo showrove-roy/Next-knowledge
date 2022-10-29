@@ -5,18 +5,18 @@ import { FaGithub } from "react-icons/fa";
 import { useAuthInfo } from "../../../contexts/AuthProvider";
 
 const Login = () => {
+  const { googleSignIN, gitHubLogin, loginUser } = useAuthInfo();
+
   const navigate = useNavigate();
   const location = useLocation();
-
-  const { googleSignIN, gitHubLogin, loginUser } = useAuthInfo();
 
   const from = location.state?.from?.pathname || "/";
 
   // Google sign handel
   const googleSignHandle = () => {
-    setErrorMess(null);
     googleSignIN()
       .then((result) => {
+        setErrorMess("");
         navigate(from, { replace: true });
       })
       .catch((error) => {
@@ -28,9 +28,9 @@ const Login = () => {
 
   // Git hum handel
   const gitHubLoginHandle = () => {
-    setErrorMess(null);
     gitHubLogin()
       .then((result) => {
+        setErrorMess("");
         navigate(from, { replace: true });
       })
       .catch((error) => {
@@ -42,13 +42,14 @@ const Login = () => {
 
   // login user handel
   const loginUserHandle = (event) => {
-    setErrorMess(null);
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
     loginUser(email, password)
       .then((result) => {
+        form.reset();
+        setErrorMess("");
         navigate(from, { replace: true });
       })
       .catch((error) => {
@@ -56,12 +57,10 @@ const Login = () => {
         const errorMessage = error.message;
         setErrorMess(errorMessage);
       });
-
-    form.reset();
   };
 
   // Error Message control
-  const [errorMess, setErrorMess] = useState(null);
+  const [errorMess, setErrorMess] = useState("");
   return (
     <div className='hero h-full  pt-2 pb-10'>
       <div className=''>

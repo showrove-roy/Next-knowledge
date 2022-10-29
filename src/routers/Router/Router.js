@@ -9,6 +9,7 @@ import Error404 from "../../shared/404Error/Error404";
 import CourseDetails from "../../shared/CourseDetails/CourseDetails";
 import Login from "../../shared/sign-IN-UP/Login/Login";
 import SignUP from "../../shared/sign-IN-UP/SignUP/SignUP";
+import PrivateRouter from "../PrivatRouter/PrivateRouter";
 
 export const routers = createBrowserRouter([
   {
@@ -52,7 +53,11 @@ export const routers = createBrowserRouter([
           fetch(
             `https://next-knowledge-server.vercel.app/courses/${params.id}`
           ),
-        element: <CourseDetails></CourseDetails>,
+        element: (
+          <PrivateRouter>
+            <CourseDetails></CourseDetails>
+          </PrivateRouter>
+        ),
       },
       {
         path: "/courses/level/:level",
