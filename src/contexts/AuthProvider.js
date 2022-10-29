@@ -6,6 +6,7 @@ import {
   GithubAuthProvider,
   GoogleAuthProvider,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
   updateProfile,
@@ -43,9 +44,13 @@ const AuthProvider = ({ children }) => {
   };
 
   // Update USER Profile
-
   const updateUserInfo = (profile) => {
     return updateProfile(auth.currentUser, profile);
+  };
+
+  // Sign in a user with an email address and password
+  const loginUser = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
   };
 
   // github login function
@@ -75,6 +80,7 @@ const AuthProvider = ({ children }) => {
     createUser,
     updateUserInfo,
     gitHubLogin,
+    loginUser,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

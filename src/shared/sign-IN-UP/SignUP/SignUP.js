@@ -69,6 +69,7 @@ const SignUP = () => {
       });
   };
 
+  // Git hum handel
   const gitHubLoginHandle = () => {
     setErrorMess(null);
     gitHubLogin()
