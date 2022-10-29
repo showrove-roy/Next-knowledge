@@ -5,7 +5,7 @@ import { FaGithub } from "react-icons/fa";
 import { useAuthInfo } from "../../../contexts/AuthProvider";
 
 const Login = () => {
-  const { googleSignIN, gitHubLogin, loginUser } = useAuthInfo();
+  const { googleSignIN, gitHubLogin, loginUser, setLoading } = useAuthInfo();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -23,6 +23,9 @@ const Login = () => {
         console.error(error);
         const errorMessage = error.message;
         setErrorMess(errorMessage);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -37,6 +40,9 @@ const Login = () => {
         console.error(error);
         const errorMessage = error.message;
         setErrorMess(errorMessage);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -56,6 +62,9 @@ const Login = () => {
         console.error(error);
         const errorMessage = error.message;
         setErrorMess(errorMessage);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 

@@ -4,7 +4,6 @@ import Course from "../../shared/Course/Course";
 
 const Courses = () => {
   const courses = useLoaderData();
-  console.log(courses);
   return (
     <div className='grid md:grid-cols-2 grid-cols-1 justify-items-center gap-10 pt-8  w-fit m-auto md:pl-5'>
       {courses.map((course) => (

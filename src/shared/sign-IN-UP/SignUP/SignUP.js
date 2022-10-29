@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useAuthInfo } from "../../../contexts/AuthProvider";
 
 const SignUP = () => {
-  const { googleSignIN, createUser, updateUserInfo, gitHubLogin } =
+  const { googleSignIN, createUser, updateUserInfo, gitHubLogin, setLoading } =
     useAuthInfo();
 
   // Google sign handel
@@ -19,6 +19,9 @@ const SignUP = () => {
         console.error(error);
         const errorMessage = error.message;
         setErrorMess(errorMessage);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -41,6 +44,9 @@ const SignUP = () => {
         console.error(error);
         const errorMessage = error.message;
         setErrorMess(errorMessage);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -59,6 +65,9 @@ const SignUP = () => {
         console.error(error);
         const errorMessage = error.message;
         setErrorMess(errorMessage);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -72,6 +81,9 @@ const SignUP = () => {
         console.error(error);
         const errorMessage = error.message;
         setErrorMess(errorMessage);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
