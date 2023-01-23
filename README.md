@@ -4,7 +4,7 @@ Website Link: [Next Knowledge](https://next-knowledge-b3a36.web.app/)
 
 Server Code: [Next Knowledge Server](https://github.com/showrove-roy/Next-knowledge-Server-)
 
-## What I used in this project?
+## The Key Technologies Used in this Project
 
 - React js
 - Express js
