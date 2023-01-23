@@ -66,7 +66,7 @@ const Header = () => {
                 <Link to='/faq'>FAQ</Link>
               </li>
               <li className='font-semibold'>
-                <Link to='/blog'>Blog</Link>
+                <Link to='/blogs'>Blog</Link>
               </li>
             </ul>
           </div>
